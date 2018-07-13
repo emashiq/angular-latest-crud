@@ -1,0 +1,34 @@
+<div>
+  <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+        <div class="col-md-4">
+            <label for="">Name</label>
+            <input type="text" formControlName="name" class="form-control">
+            <span class="text-danger" *ngIf="studentForm.controls['name'].hasError('required') && isSubmitted">This Field is Required</span>
+        </div>
+        <div class="col-md-4">
+            <label for="">Email</label>
+            <input type="text" formControlName="email" class="form-control">
+            <span class="text-danger" *ngIf="studentForm.controls['email'].hasError('email') && isSubmitted">Please insert valid email !</span>
+
+        </div>
+        <div class="col-md-4">
+            <label for="">Age</label>
+            <input type="number" formControlName="age" class="form-control">
+        </div>
+        <div class="col-md-4">
+            <label for="">Passing Year</label>
+            <input type="number" formControlName="passingyear" class="form-control">
+        </div>
+        <div class="col-md-4">
+            <label for="">Passing Year</label>
+            <input type="file" formControlName="image" (change)="onFileChange($event)" class="form-control">
+        </div>
+        
+    </div>
+    <br>
+    <input type="submit" class="btn btn-primary btn-sm" value="Save" />
+
+  </form>
+</div>
+
